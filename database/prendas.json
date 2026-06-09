@@ -1,1 +1,38 @@
+[
+{
+"nombre": "Camiseta Deportiva",
+"marca": "Nike",
+"talla": "M",
+"precio": 18000,
+"stock": 25
+},
+{
+"nombre": "Pantalón Deportivo",
+"marca": "Adidas",
+"talla": "L",
+"precio": 25000,
+"stock": 15
+},
+{
+"nombre": "Sudadera",
+"marca": "Puma",
+"talla": "S",
+"precio": 22000,
+"stock": 20
+},
+{
+"nombre": "Jeans",
+"marca": "Levis",
+"talla": "32",
+"precio": 30000,
+"stock": 18
+},
+{
+"nombre": "Chaqueta",
+"marca": "Under Armour",
+"talla": "XL",
+"precio": 35000,
+"stock": 10
+}
+]
 
