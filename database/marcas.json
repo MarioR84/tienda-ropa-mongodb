@@ -1,1 +1,22 @@
-
+[
+{
+"nombre": "Nike",
+"pais": "Estados Unidos"
+},
+{
+"nombre": "Adidas",
+"pais": "Alemania"
+},
+{
+"nombre": "Puma",
+"pais": "Alemania"
+},
+{
+"nombre": "Levis",
+"pais": "Estados Unidos"
+},
+{
+"nombre": "Under Armour",
+"pais": "Estados Unidos"
+}
+]
