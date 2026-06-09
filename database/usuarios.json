@@ -1,1 +1,21 @@
+[
+{
+"nombre": "Mario Rodríguez",
+"correo": "[mario@gmail.com](mailto:mario@gmail.com)",
+"telefono": "88888888",
+"direccion": "Cartago, Costa Rica"
+},
+{
+"nombre": "Ana López",
+"correo": "[ana@gmail.com](mailto:ana@gmail.com)",
+"telefono": "87777777",
+"direccion": "San José, Costa Rica"
+},
+{
+"nombre": "Carlos Ramírez",
+"correo": "[carlos@gmail.com](mailto:carlos@gmail.com)",
+"telefono": "86666666",
+"direccion": "Heredia, Costa Rica"
+}
+]
 
