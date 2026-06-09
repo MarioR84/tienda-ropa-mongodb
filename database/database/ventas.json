@@ -1,1 +1,43 @@
+[
+{
+"fecha": "2026-06-01",
+"cliente": "Mario Rodríguez",
+"prenda": "Camiseta Deportiva",
+"marca": "Nike",
+"cantidad": 2,
+"total": 36000
+},
+{
+"fecha": "2026-06-02",
+"cliente": "Ana López",
+"prenda": "Pantalón Deportivo",
+"marca": "Adidas",
+"cantidad": 1,
+"total": 25000
+},
+{
+"fecha": "2026-06-03",
+"cliente": "Carlos Ramírez",
+"prenda": "Sudadera",
+"marca": "Puma",
+"cantidad": 3,
+"total": 66000
+},
+{
+"fecha": "2026-06-03",
+"cliente": "Mario Rodríguez",
+"prenda": "Jeans",
+"marca": "Levis",
+"cantidad": 1,
+"total": 30000
+},
+{
+"fecha": "2026-06-04",
+"cliente": "Ana López",
+"prenda": "Chaqueta",
+"marca": "Under Armour",
+"cantidad": 1,
+"total": 35000
+}
+]
 
