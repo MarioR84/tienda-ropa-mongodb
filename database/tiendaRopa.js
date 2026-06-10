@@ -155,4 +155,61 @@ db.ventas.updateOne(
 db.ventas.deleteOne({
 fecha: "2026-06-03"
 });
+// ==========================================
+// CONSULTAS
+// ==========================================
+
+// Consulta 1:
+// Obtener la cantidad vendida de prendas en una fecha específica.
+db.ventas.aggregate([
+{
+$match: {
+fecha: "2026-06-01"
+}
+},
+{
+$group: {
+_id: "$prenda",
+cantidadVendida: {
+$sum: "$cantidad"
+}
+}
+}
+]);
+
+// Consulta 2:
+// Obtener la lista de todas las marcas que tienen al menos una venta.
+db.ventas.distinct("marca");
+
+// Consulta 3:
+// Obtener las prendas vendidas y su cantidad restante en stock.
+db.prendas.find(
+{},
+{
+_id: 0,
+nombre: 1,
+stock: 1
+}
+);
+
+// Consulta 4:
+// Obtener el listado de las 5 marcas más vendidas y su cantidad de ventas.
+db.ventas.aggregate([
+{
+$group: {
+_id: "$marca",
+totalVentas: {
+$sum: "$cantidad"
+}
+}
+},
+{
+$sort: {
+totalVentas: -1
+}
+},
+{
+$limit: 5
+}
+]);
 
