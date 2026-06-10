@@ -45,6 +45,7 @@ db.usuarios.updateOne(
 db.usuarios.deleteOne({
 nombre: "Carlos Ramírez"
 });
+
 // ==========================================
 // COLECCIÓN MARCAS
 // ==========================================
@@ -155,12 +156,13 @@ db.ventas.updateOne(
 db.ventas.deleteOne({
 fecha: "2026-06-03"
 });
+
 // ==========================================
 // CONSULTAS
 // ==========================================
 
 // Consulta 1:
-// Obtener la cantidad vendida de prendas en una fecha específica.
+// Obtener la cantidad vendida de prendas por una fecha específica.
 db.ventas.aggregate([
 {
 $match: {
@@ -183,14 +185,27 @@ db.ventas.distinct("marca");
 
 // Consulta 3:
 // Obtener las prendas vendidas y su cantidad restante en stock.
-db.prendas.find(
-{},
+db.ventas.aggregate([
 {
-_id: 0,
-nombre: 1,
-stock: 1
+$lookup: {
+from: "prendas",
+localField: "prenda",
+foreignField: "nombre",
+as: "detallePrenda"
 }
-);
+},
+{
+$unwind: "$detallePrenda"
+},
+{
+$project: {
+_id: 0,
+prenda: "$prenda",
+cantidadVendida: "$cantidad",
+stockRestante: "$detallePrenda.stock"
+}
+}
+]);
 
 // Consulta 4:
 // Obtener el listado de las 5 marcas más vendidas y su cantidad de ventas.
@@ -212,4 +227,5 @@ totalVentas: -1
 $limit: 5
 }
 ]);
+
 
