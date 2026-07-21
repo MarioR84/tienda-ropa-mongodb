@@ -1,40 +1,52 @@
-README.md
-API Tienda de Ropa 👕
+# 👕 API Tienda de Ropa
 
-Universidad Florencio del Castillo
+## Desarrollo con Plataformas Abiertas
 
-Carrera: Ingeniería Informática
+**Universidad Florencio del Castillo**
 
-Curso: Desarrollo con Plataformas Abiertas
+- **Curso:** Desarrollo con Plataformas Abiertas
+- **Proyecto:** Segundo Proyecto
+- **Docente:** Daniel Bogarín Granados
+- **Estudiante:** Mario Rodríguez
 
-Proyecto: Segundo Proyecto
+---
 
-Docente: Daniel Bogarín Granados
+# 📖 Descripción
 
-Estudiante: Mario Rodríguez
+Este proyecto consiste en el desarrollo de una **API REST** utilizando **Python**, **Flask** y **MongoDB Atlas** para administrar la información de una tienda de ropa.
 
-Descripción
+La API implementa una arquitectura por capas utilizando **Modelos**, **Controladores** y **Rutas**, permitiendo realizar operaciones CRUD para las colecciones de la base de datos y generar los reportes solicitados en el proyecto.
 
-Este proyecto consiste en el desarrollo de una API REST utilizando Python, Flask y MongoDB Atlas para administrar la información de una tienda de ropa.
+---
 
-La API implementa una arquitectura por capas (Configuración, Modelos, Controladores y Rutas), permitiendo realizar operaciones CRUD para las colecciones de la base de datos y generar los reportes solicitados en el proyecto.
+# 🎯 Objetivos
 
-Objetivos
-Administrar las marcas de la tienda.
-Administrar los usuarios.
-Administrar las prendas.
-Administrar las ventas.
-Generar reportes mediante consultas en MongoDB.
-Aplicar una arquitectura por capas utilizando programación orientada a objetos.
-Tecnologías utilizadas
-Tecnología	Descripción
-Python	Lenguaje de programación
-Flask	Framework para desarrollar la API
-MongoDB Atlas	Base de datos NoSQL
-PyMongo	Conector entre Python y MongoDB
-Postman	Pruebas de los endpoints
-GitHub	Repositorio del proyecto
-Arquitectura
+- Administrar las marcas de la tienda.
+- Administrar los usuarios.
+- Administrar las prendas.
+- Administrar las ventas.
+- Generar reportes utilizando MongoDB.
+- Aplicar programación orientada a objetos mediante una arquitectura por capas.
+
+---
+
+# 🛠 Tecnologías utilizadas
+
+| Tecnología | Descripción |
+|------------|-------------|
+| Python | Lenguaje de programación |
+| Flask | Framework para desarrollar la API |
+| MongoDB Atlas | Base de datos NoSQL |
+| PyMongo | Conexión con MongoDB |
+| Postman | Pruebas de la API |
+| Git | Control de versiones |
+| GitHub | Repositorio del proyecto |
+
+---
+
+# 📂 Arquitectura del proyecto
+
+```text
 API
 │
 ├── config
@@ -64,134 +76,182 @@ API
 ├── app.py
 ├── requirements.txt
 └── .env
-Instalación
+```
 
-Clonar el repositorio.
+---
 
-Entrar a la carpeta API.
+# 🚀 Instalación
 
-Instalar las dependencias:
+## 1. Clonar el repositorio
 
+```bash
+git clone https://github.com/MarioR84/tienda-ropa-mongodb.git
+```
+
+## 2. Entrar a la carpeta API
+
+```bash
+cd API
+```
+
+## 3. Instalar dependencias
+
+```bash
 pip install -r requirements.txt
+```
 
-Ejecutar la aplicación:
+## 4. Ejecutar la aplicación
 
+```bash
 python app.py
+```
 
-La API estará disponible en:
+La API quedará disponible en:
 
+```text
 http://127.0.0.1:5000
-Documentación de Endpoints
-Marcas
-Acción	Método	Endpoint
-Obtener todas las marcas	GET	/marcas
-Obtener una marca	GET	/marcas/{id}
-Crear marca	POST	/marcas
-Actualizar marca	PUT	/marcas/{id}
-Eliminar marca	DELETE	/marcas/{id}
-Ejemplo para crear una marca
+```
+
+---
+
+# 📌 Endpoints
+
+## 🏷 Marcas
+
+| Acción | Método | Endpoint |
+|---------|---------|----------|
+| Obtener todas | GET | `/marcas` |
+| Obtener por ID | GET | `/marcas/{id}` |
+| Crear | POST | `/marcas` |
+| Actualizar | PUT | `/marcas/{id}` |
+| Eliminar | DELETE | `/marcas/{id}` |
+
+### Ejemplo de creación
+
+```json
 {
-    "nombre":"Nike",
-    "pais":"Estados Unidos"
+  "nombre": "Nike",
+  "pais": "Estados Unidos"
 }
-Usuarios
-Acción	Método	Endpoint
-Obtener usuarios	GET	/usuarios
-Obtener usuario	GET	/usuarios/{id}
-Crear usuario	POST	/usuarios
-Actualizar usuario	PUT	/usuarios/{id}
-Eliminar usuario	DELETE	/usuarios/{id}
-Ejemplo
+```
+
+---
+
+## 👤 Usuarios
+
+| Acción | Método | Endpoint |
+|---------|---------|----------|
+| Obtener todos | GET | `/usuarios` |
+| Obtener por ID | GET | `/usuarios/{id}` |
+| Crear | POST | `/usuarios` |
+| Actualizar | PUT | `/usuarios/{id}` |
+| Eliminar | DELETE | `/usuarios/{id}` |
+
+### Ejemplo
+
+```json
 {
-    "nombre":"Mario Rodríguez",
-    "correo":"mario@gmail.com",
-    "telefono":"88888888",
-    "direccion":"Cartago"
+  "nombre": "Mario Rodríguez",
+  "correo": "mario@gmail.com",
+  "telefono": "88888888",
+  "direccion": "Cartago"
 }
-Prendas
-Acción	Método	Endpoint
-Obtener prendas	GET	/prendas
-Obtener prenda	GET	/prendas/{id}
-Crear prenda	POST	/prendas
-Actualizar prenda	PUT	/prendas/{id}
-Eliminar prenda	DELETE	/prendas/{id}
-Ejemplo
+```
+
+---
+
+## 👕 Prendas
+
+| Acción | Método | Endpoint |
+|---------|---------|----------|
+| Obtener todas | GET | `/prendas` |
+| Obtener por ID | GET | `/prendas/{id}` |
+| Crear | POST | `/prendas` |
+| Actualizar | PUT | `/prendas/{id}` |
+| Eliminar | DELETE | `/prendas/{id}` |
+
+### Ejemplo
+
+```json
 {
-    "nombre":"Camiseta Deportiva",
-    "marca":"Nike",
-    "talla":"M",
-    "precio":18000,
-    "stock":25
+  "nombre": "Camiseta Deportiva",
+  "marca": "Nike",
+  "talla": "M",
+  "precio": 18000,
+  "stock": 25
 }
-Ventas
-Acción	Método	Endpoint
-Obtener ventas	GET	/ventas
-Obtener venta	GET	/ventas/{id}
-Crear venta	POST	/ventas
-Actualizar venta	PUT	/ventas/{id}
-Eliminar venta	DELETE	/ventas/{id}
-Ejemplo
+```
+
+---
+
+## 💰 Ventas
+
+| Acción | Método | Endpoint |
+|---------|---------|----------|
+| Obtener todas | GET | `/ventas` |
+| Obtener por ID | GET | `/ventas/{id}` |
+| Crear | POST | `/ventas` |
+| Actualizar | PUT | `/ventas/{id}` |
+| Eliminar | DELETE | `/ventas/{id}` |
+
+### Ejemplo
+
+```json
 {
-    "fecha":"2026-07-20",
-    "cliente":"Mario Rodríguez",
-    "prenda":"Camiseta Deportiva",
-    "marca":"Nike",
-    "cantidad":2,
-    "total":36000
+  "fecha": "2026-07-20",
+  "cliente": "Mario Rodríguez",
+  "prenda": "Camiseta Deportiva",
+  "marca": "Nike",
+  "cantidad": 2,
+  "total": 36000
 }
-Reportes
-1. Marcas con al menos una venta
+```
 
-Método
+---
 
-GET
+# 📊 Reportes
 
-Endpoint
+| Reporte | Método | Endpoint |
+|----------|---------|----------|
+| Marcas con al menos una venta | GET | `/reportes/marcas-con-ventas` |
+| Prendas vendidas con stock restante | GET | `/reportes/prendas-vendidas-stock` |
+| Cinco marcas más vendidas | GET | `/reportes/cinco-marcas-mas-vendidas` |
 
-/reportes/marcas-con-ventas
+### Marcas con ventas
 
-Este reporte devuelve todas las marcas que poseen al menos una venta registrada.
+Obtiene todas las marcas que tienen al menos una venta registrada.
 
-2. Prendas vendidas con stock restante
+### Prendas vendidas con stock
 
-Método
+Muestra cada prenda vendida junto con la cantidad restante en inventario.
 
-GET
+### Cinco marcas más vendidas
 
-Endpoint
+Lista las cinco marcas con mayor cantidad de ventas registradas.
 
-/reportes/prendas-vendidas-stock
+---
 
-Este reporte muestra la cantidad vendida de cada prenda junto con el stock disponible.
+# ✅ Pruebas
 
-3. Cinco marcas más vendidas
+Todos los endpoints fueron probados utilizando **Postman**, verificando correctamente:
 
-Método
+- CRUD de Marcas.
+- CRUD de Usuarios.
+- CRUD de Prendas.
+- CRUD de Ventas.
+- Reportes solicitados.
 
-GET
+---
 
-Endpoint
+# 📌 Conclusión
 
-/reportes/cinco-marcas-mas-vendidas
+Con este proyecto se desarrolló una API REST utilizando Flask y MongoDB Atlas, implementando una arquitectura por capas, operaciones CRUD para todas las colecciones y los reportes solicitados. El funcionamiento de la API fue validado mediante pruebas realizadas con Postman.
 
-Este reporte devuelve las cinco marcas con mayor cantidad de ventas registradas.
+---
 
-Pruebas realizadas
+# 👨‍💻 Autor
 
-La API fue probada utilizando Postman, verificando correctamente:
-
-CRUD de Marcas.
-CRUD de Usuarios.
-CRUD de Prendas.
-CRUD de Ventas.
-Reportes solicitados.
-Conclusiones
-
-Durante el desarrollo del proyecto se implementó una API REST utilizando Flask y MongoDB Atlas aplicando una arquitectura por capas. Se desarrollaron operaciones CRUD para todas las colecciones y se implementaron los reportes solicitados, comprobando su funcionamiento mediante Postman.
-
-Autor
-
-Mario Rodríguez
+**Mario Rodríguez**
 
 Ingeniería Informática
 
