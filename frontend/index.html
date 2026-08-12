@@ -3,31 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Ropa</title>
+    <title>Administración de prendas</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <main class="contenedor">
+        <header class="encabezado">
+            <h1>Tienda de ropa</h1>
+            <p class="subtitulo">Gestión de prendas y reportes de ventas.</p>
+        </header>
 
-    <h1>API Tienda de Ropa</h1>
+        <nav class="navegacion" aria-label="Secciones principales">
+            <button type="button" class="nav-boton activo" data-vista="prendas">Gestión de prendas</button>
+            <button type="button" class="nav-boton" data-vista="marcas-ventas">Marcas con ventas</button>
+            <button type="button" class="nav-boton" data-vista="prendas-stock">Prendas vendidas y stock</button>
+            <button type="button" class="nav-boton" data-vista="marcas-top">5 marcas más vendidas</button>
+        </nav>
 
-    <button id="btnCargar">Cargar prendas</button>
+        <section id="vista-prendas" class="vista">
+            <section class="panel" aria-labelledby="tituloFormulario">
+                <div class="panel-encabezado">
+                    <h2 id="tituloFormulario">Agregar prenda</h2>
+                </div>
 
-    <p id="mensaje"></p>
+                <form id="formPrenda">
+                    <input type="hidden" id="prendaId">
 
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Marca</th>
-                <th>Talla</th>
-                <th>Precio</th>
-                <th>Stock</th>
-            </tr>
-        </thead>
-        <tbody id="tablaPrendas"></tbody>
-    </table>
+                    <div class="campos-formulario">
+                        <div class="campo">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" required maxlength="100">
+                        </div>
+                        <div class="campo">
+                            <label for="marca">Marca</label>
+                            <input type="text" id="marca" name="marca" required maxlength="100">
+                        </div>
+                        <div class="campo">
+                            <label for="talla">Talla</label>
+                            <input type="text" id="talla" name="talla" required maxlength="20">
+                        </div>
+                        <div class="campo">
+                            <label for="precio">Precio</label>
+                            <input type="number" id="precio" name="precio" required min="0" step="0.01">
+                        </div>
+                        <div class="campo">
+                            <label for="stock">Stock</label>
+                            <input type="number" id="stock" name="stock" required min="0" step="1">
+                        </div>
+                    </div>
+
+                    <div class="acciones-formulario">
+                        <button type="submit" id="btnGuardar">Guardar prenda</button>
+                        <button type="button" id="btnCancelar" class="boton-secundario oculto">Cancelar edición</button>
+                    </div>
+                </form>
+            </section>
+
+            <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+
+            <section class="panel" aria-labelledby="tituloListado">
+                <div class="panel-encabezado">
+                    <h2 id="tituloListado">Prendas registradas</h2>
+                    <button type="button" id="btnCargar" class="boton-secundario">Actualizar lista</button>
+                </div>
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead><tr><th>Nombre</th><th>Marca</th><th>Talla</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr></thead>
+                        <tbody id="tablaPrendas"></tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+
+        <section id="vista-marcas-ventas" class="vista" hidden>
+            <section class="panel" aria-labelledby="tituloMarcasVentas">
+                <div class="panel-encabezado">
+                    <div>
+                        <h2 id="tituloMarcasVentas">Marcas con al menos una venta</h2>
+                        <p class="descripcion-reporte">Marcas presentes en los registros de ventas.</p>
+                    </div>
+                    <button type="button" class="boton-secundario" data-recargar="marcas-ventas">Actualizar reporte</button>
+                </div>
+                <p id="mensajeMarcasVentas" class="mensaje" role="status" aria-live="polite"></p>
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead><tr><th>Marca</th></tr></thead>
+                        <tbody id="tablaMarcasVentas"></tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+
+        <section id="vista-prendas-stock" class="vista" hidden>
+            <section class="panel" aria-labelledby="tituloPrendasStock">
+                <div class="panel-encabezado">
+                    <div>
+                        <h2 id="tituloPrendasStock">Prendas vendidas y stock</h2>
+                        <p class="descripcion-reporte">Cantidad vendida y existencias registradas para cada prenda.</p>
+                    </div>
+                    <button type="button" class="boton-secundario" data-recargar="prendas-stock">Actualizar reporte</button>
+                </div>
+                <p id="mensajePrendasStock" class="mensaje" role="status" aria-live="polite"></p>
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead><tr><th>Prenda</th><th>Marca</th><th>Cantidad vendida</th><th>Stock restante</th></tr></thead>
+                        <tbody id="tablaPrendasStock"></tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+
+        <section id="vista-marcas-top" class="vista" hidden>
+            <section class="panel" aria-labelledby="tituloMarcasTop">
+                <div class="panel-encabezado">
+                    <div>
+                        <h2 id="tituloMarcasTop">5 marcas más vendidas</h2>
+                        <p class="descripcion-reporte">Clasificación por cantidad de unidades vendidas.</p>
+                    </div>
+                    <button type="button" class="boton-secundario" data-recargar="marcas-top">Actualizar reporte</button>
+                </div>
+                <p id="mensajeMarcasTop" class="mensaje" role="status" aria-live="polite"></p>
+                <div class="tabla-contenedor">
+                    <table>
+                        <thead><tr><th>Marca</th><th>Cantidad vendida</th><th>Cantidad de ventas</th></tr></thead>
+                        <tbody id="tablaMarcasTop"></tbody>
+                    </table>
+                </div>
+            </section>
+        </section>
+    </main>
 
     <script src="script.js"></script>
-
 </body>
 </html>
